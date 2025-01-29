@@ -50,7 +50,7 @@ let startSurvey = (qArray) => {
   btnContainer.innerHTML = `<span id="next" class="btn">Next</span>`;
   document.getElementById("next").addEventListener("click", () => {
     counter += 1
-    call_params += `Q${counter}=A${counter}${document.getElementById("answers").value}&`;
+    call_params += `Q${counter}=${document.getElementById("answers").value}&`;
     if(qArray.length > counter){
       document.getElementById("prompt").innerHTML = `${qArray[counter]}`;
       document.getElementById("answers").value = ""
