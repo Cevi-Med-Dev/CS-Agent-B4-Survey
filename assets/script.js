@@ -6,6 +6,7 @@ let startBtn = document.querySelector("#start");
 let qContainer = document.querySelector("#questions");
 let btnContainer = document.querySelector(".btnContainer");
 let CSA = document.querySelector(".CSA")
+let qPix = document.querySelector("#qPix");
 let counter = 0;
 let PreSurveyQs = [
   "Which call management software have you used in the past?",
@@ -45,11 +46,13 @@ let call_trigger = async (url, data) => {
   return response; // parses JSON response into native JavaScript objects
 };
 let startSurvey = (qArray) => {
-  qContainer.innerHTML += `<textarea id="answers"></textarea>`;
+
+  qContainer.innerHTML += `<progress id="progressBar" value="${counter}" max=${qArray.length}> 0 </progress><br><textarea id="answers"></textarea>`;
   document.getElementById("prompt").innerHTML = `${qArray[counter]}`;
   btnContainer.innerHTML = `<span id="next" class="btn">Next</span>`;
   document.getElementById("next").addEventListener("click", () => {
     counter += 1
+    document.getElementById("progressBar").value = counter
     call_params += `Q${counter}=${document.getElementById("answers").value}&`;
     if(qArray.length > counter){
       document.getElementById("prompt").innerHTML = `${qArray[counter]}`;
@@ -62,12 +65,14 @@ let startSurvey = (qArray) => {
 
 //Triggers
 CSA.addEventListener("change", () => {
+ 
   startBtn.classList.remove("hide") 
   document.getElementById("prompt").classList.remove("hide") 
   CSA.classList.add("hide") 
   call_params += `${CSA.name}=${CSA.value}&`;
 });
 document.getElementById("start").addEventListener("click", (e) => {
+  qPix.classList.remove("hide") 
   startSurvey(PreSurveyQs);
 });
 
@@ -76,7 +81,7 @@ call_form_.addEventListener("submit", (e) => {
   console.log("this is the data retreived", call_params);
   call_trigger("https://hooks.airtable.com/workflows/v1/genericWebhook/appELJwYYus7qLt4Q/wflhTzGFUO7eSYJGP/wtrqw3NFGafD3XkUT", JSON.stringify(call_params)).then((data) => {
     alert("Answers have been sent");
-    console.log(data);
+    location.reload()
   });
 });
 

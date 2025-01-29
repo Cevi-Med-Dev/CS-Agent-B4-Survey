@@ -8,7 +8,7 @@ body {
 
 h1 {
     color: white;
-    font-size: 3vw;
+    font-size: 3.2vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -180,6 +180,12 @@ img#logo {
     z-index: 1;
 }
 
+img#qPix{
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
 .btn {
     width: 80%;
     margin: 10px;
@@ -228,9 +234,26 @@ select:hover {
 footer {
     z-index: 1;
     color: white;
-    bottom: 25px;
-    position: fixed;
+    bottom: 0;
+    right: 10px;
+    position: absolute;
+    transform: rotate(90deg);
 }
+progress{
+    border: none;
+    width: 100%;
+    height: 3px;
+
+  }
+  
+  progress::-webkit-progress-value {
+    background: #C40C11; 
+  }
+  
+  progress::-moz-progress-bar {
+    background: white !important;
+  }
+
 
 @media only screen and (max-width: 850px) {
     section#flags div {
