@@ -1,0 +1,298 @@
+body {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1 {
+    color: white;
+    font-size: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+label{
+    text-align: center;
+    color: #FFFF;
+    padding: 10px 5px;
+    font-size: 14px;
+    background-color: rgba(60, 15, 15, 0.83)
+}
+#formContainer {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    z-index: 1;
+}
+
+#flags {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #D9D9D9;
+    margin-right: 10px;
+    border: 2px solid white;
+}
+
+div.input,
+aside.input {
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.664);
+}
+
+.hide {
+    display: none;
+}
+
+select {
+    cursor: pointer;
+}
+
+input {
+    outline: none;
+    cursor: pointer;
+}
+
+textarea {
+    outline: none;
+}
+
+.input:focus {
+    border: 1px solid #07b30aa9;
+
+}
+
+#questions {
+    display: flex;
+    flex-direction: column;
+}
+
+#questions aside {
+    display: flex !important;
+    justify-content: space-evenly;
+
+}
+
+.evidence {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.evidenceBtn {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#questions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#formContainer hr {
+    margin: 15px 0;
+    z-index: 2;
+    color: white;
+    width: 100%;
+}
+
+#formContainer label {
+    font-size: 16px;
+    margin: 5px;
+    z-index: 1;
+    color: white;
+    font-weight: bold;
+}
+#formContainer form{
+    width: 80%;
+}
+#formContainer textarea{
+    width: 100%;
+}
+
+
+label.blackTxt {
+    color: black !important;
+}
+
+#assigneeContainer select {
+    width: 100%;
+    text-align: center;
+}
+
+aside div {
+    margin: 5px 0;
+    padding: 5px 0;
+}
+
+section#flags div {
+    width: max-content;
+    display: flex !important;
+}
+
+.leftColumn {
+    position: absolute;
+    top: 0;
+    background-color: #ad5d5f;
+    height: 170vh;
+    width: 70%;
+}
+
+.leftColumn img {
+    background-repeat: repeat-y;
+    z-index: 0;
+    opacity: .6;
+    object-fit: cover;
+    inset: 0;
+    height: 170vh;
+    width: 100%;
+}
+
+#formContainer textarea {
+    height: 125px;
+}
+
+img#logo {
+    position: fixed;
+    width: 140px;
+    top: 0;
+    left: 0;
+    height: auto;
+    z-index: 1;
+}
+
+.btn {
+    width: 80%;
+    margin: 10px;
+    border-radius: 15px;
+    border: 2px solid white;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #C40C11;
+    text-align: center;
+    color: white;
+}
+
+
+.btn:hover {
+    background-color: white;
+    border: 1px solid #C40C11;
+    color: #C40C11;
+    font-weight: bolder;
+    animation: alternate;
+}
+
+select:hover {
+    border: 1px solid #07b30aa9;
+
+}
+
+.hide{
+    display: none;
+}
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    flex-direction: column;
+}
+
+#wrapUpCall {
+    z-index: 1;
+}
+
+::placeholder {
+    font-size: 12px;
+}
+
+footer {
+    z-index: 1;
+    color: white;
+    bottom: 25px;
+    position: fixed;
+}
+
+@media only screen and (max-width: 850px) {
+    section#flags div {
+        width: max-content;
+        display: flex !important;
+    }
+
+    .leftColumn {
+        position: absolute;
+        top: 0;
+        background-color: #ad5d5f;
+        height: 170vh;
+        width: 100%;
+    }
+
+    .leftColumn img {
+        height: 170vh;
+        width: 100%;
+    }
+
+    img#logo {
+        position: absolute;
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #flags {
+        height: max-content;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .leftColumn {
+        height: 200vh;
+    }
+
+    .leftColumn img {
+        height: 200vh;
+    }
+
+    #flags select {
+        margin: 5px;
+    }
+
+    #formContainer form {
+
+        width: 300px;
+        text-align: center;
+    }
+
+    #formContainer form aside div input {
+        width: 100px;
+    }
+
+    #formContainer form textarea {
+        max-width: 110px !important;
+    }
+
+    img#logo {
+        position: absolute;
+        width: 80px;
+    }
+}

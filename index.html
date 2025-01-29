@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before Survey</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+    <section class="leftColumn">
+        <img src="./assets/img/column.jpg" alt="">
+    </section>
+    <section id="formContainer">
+        <img id="logo" src="./assets/img/logo.png" alt="">
+
+        <h1 class="animate__animated animate__backInLeft">Customer Service Agent Survey
+        </h1>
+
+        <form target="_blank"
+            action="https://hooks.airtable.com/workflows/v1/genericWebhook/app7xwRPHHOaWI4pJ/wflyLNHGL2T8dEnQs/wtrlCTYJiBKLmDcAZ"
+            method="post">
+
+            <section id="flags" class="animate__animated animate__bounceInLeft">
+         
+                    <select name="agent" class="input CSA" type="text">
+                        <option value=""> Customer Service Agent</option>
+                        <option value="Simon">Simon</option>
+                        <option value="Robert">Robert</option>
+                        <option value="Stephany">Stephanie</option>
+                        <option value="Jamess">James</option>
+                        <option value="Gavin">Gavin</option>
+                        <option value="Natally">Natally</option>
+                    </select>
+        
+              
+            </section>
+
+            <section id="questions">
+               <label id="prompt" class="hide">This Survery wil Server as a Point of Reference while bringing to life our functional requirements during app design and development phases. <br> Functional requirements are the back bone that will bring to life our vision of a custom communications solution. <br> Allowing for a tailored solution exclusive to our niche, If developed properly using DDD "Domain Driven Development" it should be adaptable to any ring central users/business and this would open doors for outsorucing our call managment software to subscribers / clients in similar scenarios looking for communication solutions.</label>
+            </section>
+            <div class="btnContainer"> 
+                <span id="start" class="btn hide" > Start </span>
+            </div>
+        </form>
+        <footer>
+            <hr>
+         
+            <small>Please provide Feedback @ Tech@cevimed.com</small>
+        </footer>
+
+    </section>
+    <script src="./assets/script.js"></script>
+</body>
+</html>
