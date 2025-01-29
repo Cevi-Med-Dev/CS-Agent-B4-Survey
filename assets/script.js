@@ -7,6 +7,7 @@ let qContainer = document.querySelector("#questions");
 let btnContainer = document.querySelector(".btnContainer");
 let CSA = document.querySelector(".CSA")
 let qPix = document.querySelector("#qPix");
+let title = document.querySelector("#title");
 let counter = 0;
 let PreSurveyQs = [
   "Which call management software have you used in the past?",
@@ -65,7 +66,6 @@ let startSurvey = (qArray) => {
 
 //Triggers
 CSA.addEventListener("change", () => {
- 
   startBtn.classList.remove("hide") 
   document.getElementById("prompt").classList.remove("hide") 
   CSA.classList.add("hide") 
@@ -73,6 +73,7 @@ CSA.addEventListener("change", () => {
 });
 document.getElementById("start").addEventListener("click", (e) => {
   qPix.classList.remove("hide") 
+  title.classList.add("hide") 
   startSurvey(PreSurveyQs);
 });
 
