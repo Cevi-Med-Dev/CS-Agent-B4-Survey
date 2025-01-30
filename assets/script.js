@@ -59,7 +59,7 @@ let startSurvey = (qArray) => {
     if(qArray.length > counter){
       document.getElementById("prompt").innerHTML = `${qArray[counter]}`;
       document.getElementById("answers").value = ""
-    }else if(qArray.length === counter){
+    }else if((qArray.length-1) === counter){
       btnContainer.innerHTML = `<button type="submit" id="send" class="btn">Send</button>`;
     }
   });
