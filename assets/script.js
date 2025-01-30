@@ -10,26 +10,26 @@ let qPix = document.querySelector("#qPix");
 let title = document.querySelector("#title");
 let counter = 0;
 let PreSurveyQs = [
-  "Which call management software have you used in the past?",
-  "How have you handled calls and group communication in your previous roles?",
-  "What industry trends have you observed or heard about related to call management and group communication?",
-  "What are the key areas for improvement when ensuring customer satisfaction?",
-  "What are the main areas for improvement in internal company communication?",
-  "What are the major areas for improvement when addressing delivery or driver issues?",
-  "What overall improvements need to be made in the customer relations management processes?",
-  "How difficult is it for you to take a call, and why?",
-  "What actions do you take to actively support the system's functionality?",
-  "What apps do you use when receiving a call, and for what purposes?",
-  "What changes would you make to the proposed design for our CRM?",
-  "What would you add to the proposed interface?",
-  "Do you believe AI will replace customer service agents before 2030?",
-  "What do you do when a customer asks for an update on their order?",
-  "How do you respond when a customer complains about a driver’s delay?",
-  "What protocol do you follow when you receive a call from a customer wanting to make a phone purchase?",
-  "How do you handle a situation when a customer calls about a broken bed that is out of warranty?",
-  "What do you do if a customer asks whether we accept Humana insurance?",
-  "What do you do when a customer inquires about specific details for a chair and asks for a quote?",
-  "How do you respond when a customer complains about receiving the wrong RPI part?"
+  "What call management software have you used?",
+  "How have you managed calls and group communication in past roles?", //1.jpg
+  "What trends have you noticed in call management and group communication?",
+  "What areas need improvement for customer satisfaction?",
+  "What areas need improvement for internal communication?",
+  "What improvements are needed to address delivery/driver issues?",
+  "What overall improvements should be made to CRM processes?",
+  "How difficult is it to handle a call, and why? ",
+  "How do you contribute day to day to fulfill our customers needs?",
+  "What apps do you use when taking calls, and what purpose do they serve?",
+  "What changes would you make to the CRM design?",
+  "What would you add to the CRM interface?",
+  "Will AI replace customer service agents by 2030?",
+  "What do you do when a customer asks for an order update?",
+  "How do you respond to a customer complaining about a driver delay?",
+  "What do you do when a customer wants to make a phone purchase?",
+  "How do you handle a call about a broken bed out of warranty?",
+  "What do you do if a customer asks about Humana insurance?",
+  "What do you do when a customer asks for a chair quote?",
+  "How do you respond to a customer complaining about the wrong RPI part?"
 ];
 
 //functions
@@ -53,6 +53,7 @@ let startSurvey = (qArray) => {
   btnContainer.innerHTML = `<span id="next" class="btn">Next</span>`;
   document.getElementById("next").addEventListener("click", () => {
     counter += 1
+    qPix.src = `./assets/img/${counter}.jpg`
     document.getElementById("progressBar").value = counter
     call_params += `Q${counter}=${document.getElementById("answers").value}&`;
     if(qArray.length > counter){
