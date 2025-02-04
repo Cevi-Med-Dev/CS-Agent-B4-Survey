@@ -5,7 +5,7 @@ var call_params = "";
 let startBtn = document.querySelector("#start");
 let qContainer = document.querySelector("#questions");
 let btnContainer = document.querySelector(".btnContainer");
-let CSA = document.querySelector(".CSA")
+let CSA = document.querySelector(".CSA");
 let qPix = document.querySelector("#qPix");
 let title = document.querySelector("#title");
 let counter = 0;
@@ -47,45 +47,53 @@ let call_trigger = async (url, data) => {
   return response; // parses JSON response into native JavaScript objects
 };
 let startSurvey = (qArray) => {
-
   qContainer.innerHTML += `<progress id="progressBar" value="${counter}" max=${qArray.length}> 0 </progress><br><textarea id="answers"></textarea>`;
   document.getElementById("prompt").innerHTML = `${qArray[counter]}`;
   btnContainer.innerHTML = `<span id="next" class="btn">Next</span>`;
+
   document.getElementById("next").addEventListener("click", () => {
-    counter += 1
-    qPix.src = `./assets/img/${counter}.jpg`
-    document.getElementById("progressBar").value = counter
+    counter += 1;
+    console.log(
+      "counter : ",
+      counter,
+      "qArray length",
+      qArray.length,
+      "# b4 last ? : ",
+      qArray.length - 1 === counter
+    );
+    qPix.src = `./assets/img/${counter}.jpg`;
+    document.getElementById("progressBar").value = counter;
     call_params += `Q${counter}=${document.getElementById("answers").value}&`;
-    if(qArray.length > counter){
-      document.getElementById("prompt").innerHTML = `${qArray[counter]}`;
-      document.getElementById("answers").value = ""
-    }else if((qArray.length-1) === counter){
+    if (qArray.length - 1 === counter) {
       btnContainer.innerHTML = `<button type="submit" id="send" class="btn">Send</button>`;
+    } else if (qArray.length > counter) {
+      document.getElementById("prompt").innerHTML = `${qArray[counter]}`;
+      document.getElementById("answers").value = "";
     }
   });
 };
 
 //Triggers
 CSA.addEventListener("change", () => {
-  startBtn.classList.remove("hide") 
-  document.getElementById("prompt").classList.remove("hide") 
-  CSA.classList.add("hide") 
+  startBtn.classList.remove("hide");
+  document.getElementById("prompt").classList.remove("hide");
+  CSA.classList.add("hide");
   call_params += `${CSA.name}=${CSA.value}&`;
 });
 document.getElementById("start").addEventListener("click", (e) => {
-  qPix.classList.remove("hide") 
-  title.classList.add("hide") 
+  qPix.classList.remove("hide");
+  title.classList.add("hide");
   startSurvey(PreSurveyQs);
 });
 
 call_form_.addEventListener("submit", (e) => {
   e.preventDefault();
   console.log("this is the data retreived", call_params);
-  call_trigger("https://hooks.airtable.com/workflows/v1/genericWebhook/appELJwYYus7qLt4Q/wflhTzGFUO7eSYJGP/wtrqw3NFGafD3XkUT", JSON.stringify(call_params)).then((data) => {
+  call_trigger(
+    "https://hooks.airtable.com/workflows/v1/genericWebhook/appELJwYYus7qLt4Q/wflhTzGFUO7eSYJGP/wtrqw3NFGafD3XkUT",
+    JSON.stringify(call_params)
+  ).then((data) => {
     alert("Answers have been sent");
-    location.reload()
+    location.reload();
   });
 });
-
-
-
