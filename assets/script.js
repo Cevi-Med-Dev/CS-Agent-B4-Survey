@@ -65,7 +65,8 @@ let startSurvey = (qArray) => {
     document.getElementById("progressBar").value = counter;
     call_params += `Q${counter}=${document.getElementById("answers").value}&`;
     if (qArray.length - 1 === counter) {
-      btnContainer.innerHTML = `<button type="submit" id="send" class="btn">Send</button>`;
+      document.getElementById("prompt").innerHTML = `${qArray[counter]}`;
+        btnContainer.innerHTML = `<button type="submit" id="send" class="btn">Send</button>`;
     } else if (qArray.length > counter) {
       document.getElementById("prompt").innerHTML = `${qArray[counter]}`;
       document.getElementById("answers").value = "";
